@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eStore – Fashion & Lifestyle</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div><i class="fas fa-phone-alt me-2"></i>+91 9876 543 210 &nbsp;|&nbsp; <i class="fas fa-envelope me-2"></i>support@estore.com</div>
+      <div class="top-links">
+        <a href="cart.html"><i class="fas fa-shopping-bag me-1"></i>Cart</a>
+        <a href="#"><i class="fas fa-user me-1"></i>My Account</a>
+        <a href="#"><i class="fas fa-heart me-1"></i>Wishlist</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">e<span>Store</span></a>
+    <!-- Search -->
+    <form class="search-form d-none d-lg-flex ms-3 me-auto" id="searchForm">
+      <input class="form-control" type="text" id="searchInput" placeholder="Search products…">
+      <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="products.html?cat=women">Women's Wear</a></li>
+            <li><a class="dropdown-item" href="products.html?cat=men">Men's Wear</a></li>
+            <li><a class="dropdown-item" href="products.html?cat=kids">Kids</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+      <div class="nav-icons ms-3">
+        <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" title="Cart" class="position-relative">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge cart-count" style="display:none">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero-section">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero-slide slide-1">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <span class="hero-badge">60% Discount Today</span>
+                <h1>Winter <span>Collection</span> 2025</h1>
+                <p>Discover the finest fashion pieces handpicked for the season. Elevate your style with our premium collection.</p>
+                <a href="products.html" class="btn-hero">Shop Now <i class="fas fa-arrow-right ms-2"></i></a>
+              </div>
+              <div class="col-lg-6 hero-img-wrap text-center">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&h=600&fit=crop" alt="Hero">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero-slide slide-2">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6">
+                <span class="hero-badge">New Arrivals</span>
+                <h1>Men's <span>Premium</span> Styles</h1>
+                <p>Bold. Sharp. Sophisticated. Explore our men's collection designed for the modern gentleman.</p>
+                <a href="products.html" class="btn-hero">Explore Now <i class="fas fa-arrow-right ms-2"></i></a>
+              </div>
+              <div class="col-lg-6 hero-img-wrap text-center">
+                <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=500&h=600&fit=crop" alt="Hero 2">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>
+
+<!-- SHOP BY CATEGORY -->
+<section class="section-py">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-subtitle">Find exactly what you're looking for</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="category-card">
+          <span class="discount-tag">New In</span>
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=800&fit=crop" alt="Women">
+          <div class="category-overlay">
+            <span>New Collection</span>
+            <h3>Women's Wear</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <span class="discount-tag">30% Off</span>
+          <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=600&h=800&fit=crop" alt="Men">
+          <div class="category-overlay">
+            <span>Winter Special</span>
+            <h3>Men's Fashion</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="category-card">
+          <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&h=800&fit=crop" alt="kids">
+          <div class="category-overlay">
+            <span>Fun & Colorful</span>
+            <h3>Kids' Corner</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LATEST PRODUCTS -->
+<section class="section-py products-section">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+      <div>
+        <h2 class="section-title mb-1">Latest Products</h2>
+        <p class="section-subtitle mb-0">Freshly curated picks just for you</p>
+      </div>
+      <ul class="nav tab-filter gap-1 mt-3 mt-md-0" id="productTabs">
+        <li class="nav-item"><a class="nav-link active" href="#" data-filter="all">All</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-filter="new">New</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-filter="featured">Featured</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-filter="offer">Offer</a></li>
+      </ul>
+    </div>
+    <div class="row" id="productGrid">
+      <!-- Filled by JS -->
+    </div>
+    <div class="text-center mt-4">
+      <a href="products.html" class="btn-outline-custom">View All Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="section-py bg-light-custom">
+  <div class="container">
+    <div class="promo-banner">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <h2>Find The Best Products <br>From Our Shop</h2>
+          <p>Designers who are passionate about creating style. Explore curated collections that define modern fashion.</p>
+          <a href="products.html" class="btn-hero">Shop Now <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+        <div class="col-lg-5 text-center mt-4 mt-lg-0">
+          <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=360&fit=crop" alt="Promo" style="border-radius:12px;max-height:280px;object-fit:cover;width:100%;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-py newsletter-section text-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <h2>Get Our Latest Offers & News</h2>
+        <p>Subscribe to our newsletter and never miss a deal or new arrival.</p>
+        <form class="newsletter-form d-flex" id="newsletterForm">
+          <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter your email address…">
+          <button type="submit" class="btn-sub">Subscribe</button>
+        </form>
+        <div class="invalid-feedback" style="display:none;color:#fff;margin-top:0.5rem;">Please enter a valid email.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES / BENEFITS -->
+<section class="section-py">
+  <div class="container">
+    <div class="row g-0 text-center">
+      <div class="col-md-4 border-end">
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+          <h5>Free Shipping</h5>
+          <p>Free delivery on all orders above ₹999. No hidden charges.</p>
+        </div>
+      </div>
+      <div class="col-md-4 border-end">
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-lock"></i></div>
+          <h5>Secure Payment</h5>
+          <p>100% secure payment with SSL encryption for every transaction.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <div class="feature-icon"><i class="fas fa-undo-alt"></i></div>
+          <h5>Easy Returns</h5>
+          <p>30-day hassle-free return policy on all our products.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">e<span>Store</span></div>
+        <p>Your one-stop destination for fashion, lifestyle, and everything in between. Quality products, curated with care.</p>
+        <div class="social-links mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Offers</a></li>
+          <li><a href="#">Get Coupon</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Categories</h6>
+        <ul class="footer-links">
+          <li><a href="products.html">Women's</a></li>
+          <li><a href="products.html">Men's</a></li>
+          <li><a href="products.html">Kids</a></li>
+          <li><a href="products.html">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Support</h6>
+        <ul class="footer-links">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Report an Issue</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Contact</h6>
+        <ul class="footer-links">
+          <li><i class="fas fa-map-marker-alt me-2"></i>Hyderabad, India</li>
+          <li><i class="fas fa-phone me-2"></i>+91 9876 543 210</li>
+          <li><i class="fas fa-envelope me-2"></i>support@estore.com</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <span>&copy; 2025 eStore. All rights reserved.</span>
+      <span>Made with <i class="fas fa-heart text-primary-custom"></i> for fashion lovers</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll To Top -->
+<button id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

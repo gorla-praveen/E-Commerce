@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products – eStore</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <div><i class="fas fa-phone-alt me-2"></i>+91 9876 543 210</div>
+      <div class="top-links">
+        <a href="cart.html"><i class="fas fa-shopping-bag me-1"></i>Cart</a>
+        <a href="#"><i class="fas fa-user me-1"></i>My Account</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg main-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">e<span>Store</span></a>
+    <form class="search-form d-none d-lg-flex ms-3 me-auto" id="searchForm">
+      <input class="form-control" type="text" id="searchInput" placeholder="Search products…">
+      <button class="btn-search" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Categories</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Women's Wear</a></li>
+            <li><a class="dropdown-item" href="#">Men's Wear</a></li>
+            <li><a class="dropdown-item" href="#">Kids</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+      <div class="nav-icons ms-3">
+        <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
+        <a href="cart.html" title="Cart" class="position-relative">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-badge cart-count" style="display:none">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <h1>Our Products</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Products</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-py bg-light-custom">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- SIDEBAR -->
+      <div class="col-lg-3">
+
+        <!-- Category Filter -->
+        <div class="sidebar-card">
+          <h6>Categories</h6>
+          <div class="filter-check">
+            <div class="form-check">
+              <input class="form-check-input cat-filter" type="checkbox" value="women" id="catWomen">
+              <label class="form-check-label" for="catWomen">Women's Wear</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input cat-filter" type="checkbox" value="men" id="catMen">
+              <label class="form-check-label" for="catMen">Men's Wear</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input cat-filter" type="checkbox" value="kids" id="catKids">
+              <label class="form-check-label" for="catKids">Kids' Wear</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Price Range -->
+        <div class="sidebar-card">
+          <h6>Price Range</h6>
+          <div class="price-range">
+            <label id="priceLabel" class="mb-2" style="font-size:0.85rem;color:var(--text-muted);">$0 – $200</label>
+            <input type="range" class="form-range w-100" id="priceRange" min="0" max="200" value="200" step="5">
+            <div class="d-flex justify-content-between" style="font-size:0.78rem;color:var(--text-muted);">
+              <span>$0</span><span>$200</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge Filter -->
+        <div class="sidebar-card">
+          <h6>Product Type</h6>
+          <div class="filter-check">
+            <div class="form-check">
+              <input class="form-check-input cat-filter" type="checkbox" value="new" id="typeNew">
+              <label class="form-check-label" for="typeNew">New Arrivals</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input cat-filter" type="checkbox" value="offer" id="typeOffer">
+              <label class="form-check-label" for="typeOffer">On Sale</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clear Filters -->
+        <button class="btn-outline-custom w-100" onclick="clearFilters()">
+          <i class="fas fa-times me-1"></i> Clear Filters
+        </button>
+      </div>
+
+      <!-- PRODUCT GRID -->
+      <div class="col-lg-9">
+
+        <!-- Sort Bar -->
+        <div class="sort-bar d-flex flex-wrap align-items-center justify-content-between mb-4 gap-2">
+          <span id="resultCount" style="font-size:0.87rem;color:var(--text-muted);">Showing all products</span>
+          <div class="d-flex align-items-center gap-2">
+            <label style="font-size:0.85rem;color:var(--text-muted);">Sort by:</label>
+            <select id="sortSelect">
+              <option value="default">Default</option>
+              <option value="low">Price: Low to High</option>
+              <option value="high">Price: High to Low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row" id="allProducts">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">e<span>Store</span></div>
+        <p>Your one-stop destination for fashion, lifestyle, and everything in between.</p>
+        <div class="social-links mt-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>Support</h6>
+        <ul class="footer-links">
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <span>&copy; 2025 eStore. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+  function clearFilters() {
+    document.querySelectorAll('.cat-filter').forEach(cb => cb.checked = false);
+    const range = document.getElementById('priceRange');
+    if (range) { range.value = 200; document.getElementById('priceLabel').textContent = '$0 – $200'; }
+    document.getElementById('sortSelect').value = 'default';
+    applyFilters();
+  }
+</script>
+</body>
+</html>
