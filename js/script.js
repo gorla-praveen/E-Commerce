@@ -82,8 +82,10 @@ function buildProductCard(p) {
   const stars = Array.from({length: 5}, (_, i) => `<i class="fa${i < p.stars ? 's' : 'r'} fa-star"></i>`).join('');
   const badge = p.badge ? `<span class="product-badge badge-${p.badge}">${p.badge === 'new' ? 'New' : 'Sale'}</span>` : '';
   const oldPrice = p.oldPrice ? `<span class="price-old">$${p.oldPrice.toFixed(2)}</span>` : '';
-  return `
-    <div class="col-6 col-md-4 col-lg-3 mb-4">
+ return `
+    <div class="col-6 col-md-4 col-lg-3 mb-4 product-item"
+         data-category="${p.category}"
+         data-type="${p.badge || 'featured'}">
       <div class="product-card">
         <div class="product-img-wrap">
           ${badge}
@@ -110,6 +112,53 @@ function buildProductCard(p) {
 
 // ---- Render Product Tabs (index.html) ----
 function renderProductTabs(filter = 'all') {
+  function filterHomepageProducts() {
+
+  const searchValue =
+    document.getElementById('searchInput')?.value.toLowerCase() || '';
+
+  const category =
+    document.getElementById('categoryFilter')?.value || 'all';
+
+  const activeTab =
+    document.querySelector('#productTabs .nav-link.active')?.dataset.filter || 'all';
+
+  let filtered = [...products];
+
+  // SEARCH
+  if (searchValue) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(searchValue)
+    );
+  }
+
+  // CATEGORY
+  if (category !== 'all') {
+    filtered = filtered.filter(p =>
+      p.category === category
+    );
+  }
+
+  // TYPE FILTER
+  if (activeTab === 'new') {
+    filtered = filtered.filter(p => p.badge === 'new');
+  }
+
+  else if (activeTab === 'offer') {
+    filtered = filtered.filter(p => p.badge === 'offer');
+  }
+
+  else if (activeTab === 'featured') {
+    filtered = filtered.filter(p => p.stars === 5);
+  }
+
+  const container = document.getElementById('productGrid');
+
+  if (!container) return;
+
+  container.innerHTML = filtered.map(buildProductCard).join('');
+
+}
   const container = document.getElementById('productGrid');
   if (!container) return;
   let filtered = products;
@@ -267,13 +316,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initPriceRange();
 
   // Tab filter
-  document.querySelectorAll('[data-filter]').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      renderProductTabs(this.dataset.filter);
-    });
+ // TAB FILTERS
+document.querySelectorAll('[data-filter]').forEach(btn => {
+
+  btn.addEventListener('click', function(e) {
+
+    e.preventDefault();
+
+    document.querySelectorAll('[data-filter]')
+      .forEach(b => b.classList.remove('active'));
+
+    this.classList.add('active');
+
+    filterHomepageProducts();
+
   });
+
+});
+
+
+// SEARCH LIVE
+document.getElementById('searchInput')
+?.addEventListener('keyup', filterHomepageProducts);
+
+
+// CATEGORY FILTER
+document.getElementById('categoryFilter')
+?.addEventListener('change', filterHomepageProducts);
 
   // Filter checkboxes & sort
   document.querySelectorAll('.cat-filter').forEach(cb => cb.addEventListener('change', applyFilters));
