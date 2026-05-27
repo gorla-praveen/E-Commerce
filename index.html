@@ -49,6 +49,8 @@
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <button onclick="logout()">Logout</button>
+
       </ul>
       <div class="nav-icons ms-3">
         <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
@@ -438,5 +440,10 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
 </body>
 </html>

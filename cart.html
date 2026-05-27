@@ -43,6 +43,7 @@
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
         <li class="nav-item"><a class="nav-link active" href="cart.html">Cart</a></li>
+        <button onclick="logout()">Logout</button>
       </ul>
 
       <div class="nav-icons ms-3">
@@ -251,6 +252,11 @@
       grid.innerHTML = products.slice(0, 4).map(buildProductCard).join('');
     }
   });
+</script>
+<script>
+if (localStorage.getItem("loggedIn") !== "true") {
+  window.location.href = "login.html";
+}
 </script>
 
 </body>

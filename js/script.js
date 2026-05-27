@@ -229,3 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('categoryFilter')
     ?.addEventListener('change', filterHomepageProducts);
 });
+
+// AUTH CHECK (runs on every page)
+function logout() {
+  localStorage.removeItem("loggedIn");
+  window.location.href = "login.html";
+}
+
+/* AUTH CHECK (skip login page) */
+if (
+  !window.location.href.includes("login.html") &&
+  localStorage.getItem("loggedIn") !== "true"
+) {
+  window.location.href = "login.html";
+}
